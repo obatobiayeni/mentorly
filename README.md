@@ -1,3 +1,20 @@
+# Mentorly
+```
+```
+# Demo
+```
+```
+
+# Description
+```
+Mentorly is a decentralized application that built on the celo blockchain. It allows users
+1. To connect their wallet the the Dapp
+2. Register as a mentor or a mentee
+3. Mentors will upload their details
+4. Mentees can book a session with their prevferred mentor
+```
+
+
 # Install
 
 ```
