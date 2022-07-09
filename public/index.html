@@ -5,47 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-    body {
+      body {
         min-height: 100vh;
         margin: 0px;
         background-color: #fff;
         box-sizing: border-box;
-        color: #272727;
         padding: 0px;
         font-family: "DM Sans";
         font-size: 16px;
         position: relative;
       }
       .notification {
-        padding: 10px 5%;
+        padding: 10px 20px;
         position: absolute;
-        top: 70px;
-        left: 0px;
-        width: 100vw;
+        top: 20px;
+        left: 5%;
+        border-radius: 6px;
+        box-shadow: 0px 0px 5px #e7e7e7;
         box-sizing: border-box;
-        height: calc(100vh - 100px);
         background-color: #fff;
       }
-      .balance {
-        justify-content: flex-start;
-        padding: 0px 5%;
-      }
-      .balance p {
-        padding: 10px 10px;
-        box-shadow: 0px 0px 5px #dddddd;
-      }
-      .balance p span {
-        color: green;
+      .notification p {
         font-size: 1.2rem;
+        color: #ff8a00;
+        margin: 0px;
+      }
+      .slide {
+        animation: slide 1s linear forwards;
       }
       button {
-        background-color: green;
+        background-color: #ff8a00;
         color: #fff;
         border: none;
-        font-family: "Roboto";
+        border-radius: 5px;
+        font-family: "DM Sans";
         cursor: pointer;
         padding: 12px 20px;
         text-transform: capitalize;
@@ -58,49 +54,71 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 30px;
-        padding: 0px 5%;
+        padding: 20px 5% 20px 5%;
         box-sizing: border-box;
       }
       nav .logo {
         display: flex;
+        width: 100px;
         align-items: center;
       }
-      .logo p span {
-        display: block;
-        font-size: 0.6rem;
+      .logo img {
+        width: 100%;
       }
 
-      .navigation ul {
-        padding: 0px;
+      .wallet_nav {
+        width: 400px;
+      }
+      .connect_wallet_btn {
+        justify-content: flex-end;
+      }
+
+      .user_details {
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0px 16px;
         margin: 0px;
       }
-      .navigation li {
-        list-style-type: none;
-        display: inline-block;
-        margin: 0px 0px 0px 10px;
+      .user_details .wallet_balance {
+        color: #ff8a00;
+        margin: 0px;
+        font-weight: bold;
+        background-color: #ffe9ce;
+        border-radius: 8px;
+        padding: 8px 16px;
       }
-      .navigation li a {
-        text-decoration: none;
-        color: #000;
-        margin: 10px 0px 10px 10px;
-        padding: 10px 18px;
-        transition: all 0.3s;
+
+      .user_details .user_identicon {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0px;
       }
-      .navigation li:hover a {
-        background-color: green;
-        color: #fff;
+      .identicon_img,
+      .name_img a {
+        border: 2px solid #f0efef;
+        width: 56px;
+        height: 56px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 0px;
+      }
+      .user_identicon img,
+      .name_img a img {
+        width: 100%;
+      }
+      .user_identicon .wallet_address {
+        font-weight: bold;
       }
       /* ENDS HERE */
 
       /* HEADER SECTION */
       header {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        flex-wrap: wrap;
+        padding: 50px 5% 10px 5%;
+        gap: 30px 100px;
+        justify-content: center;
+        align-items: center;
         box-sizing: border-box;
       }
 
@@ -108,342 +126,356 @@
         width: 500px;
       }
       .header_content h1 {
-        color: green;
-        text-transform: capitalize;
+        color: #ff8a00;
+        font-family: "Ubuntu";
         font-size: 3rem;
         margin-top: 10px;
         line-height: 1.3;
-      }
-      .header_content h1 span {
-        color: orange;
       }
       .header_content p {
         line-height: 1.5;
       }
 
-      .header_btn {
+      .header_btn div {
         margin: 0px;
-        display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 30px;
       }
       .header_btn button {
-        min-width: 100px;
+        min-width: 150px;
         justify-content: center;
+      }
+      .header_btn .learn_more {
+        background-color: #fff;
+        color: #ff8a00;
+        border: thin solid #ff8a00;
       }
 
-      /* LOGIN FORM */
-      .login_form,
-      .signup_form {
-        position: relative;
-        z-index: 2;
-        background-color: white;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-      }
-      .login_form h1,
-      .signup_form h1 {
-        width: 100%;
-        text-align: center;
-      }
-      .login_form form,
-      .signup_form form {
-        width: 400px;
-        padding: 10px 20px;
-      }
-      form div {
-        margin: 15px 0px;
-      }
-      form input,
-      form textarea,
-      form select {
-        width: 100%;
-        border-radius: 3px;
-        border: none;
-        border: thin solid #c5c5c5;
-        outline: none;
-        padding-left: 5px;
-        font-size: 0.9rem;
-        font-family: "Roboto";
-        height: 45px;
-        box-sizing: border-box;
-      }
-      form textarea {
-        height: 150px;
-      }
-      form button {
-        width: 100%;
-      }
-      /* BUY PROPERTY */
-      .recipes {
-        padding: 20px 5%;
-        margin: 0px;
-        box-sizing: border-box;
-        flex-wrap: wrap;
-        gap: 20px 40px;
-        margin-top: 5%;
-      }
-      .recipe {
-        width: 300px;
-        padding: 0px;
-        position: relative;
-        height: 360px;
-        box-shadow: 0px 0px 5px #dddddd;
+      /* Header Image */
+      .header_image {
+        height: 500px;
+        width: 500px;
         overflow: hidden;
       }
-      .recipe_img {
-        width: 100%;
-        height: 180px;
-        overflow: hidden;
-      }
-      .recipe_img img {
+      .header_image img {
         width: 100%;
       }
-      .recipe_info {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-      }
-      .recipe_info h3 {
-        margin: 10px 0px;
-        font-size: 1.3rem;
-      }
-      .recipe_info p {
-        font-size: 1rem;
-        margin: 5px 0px;
-      }
-      .recipe_info p.sold {
-        color: green;
-        font-size: 1rem;
-      }
-      .recipe .icon {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 50%;
-        top: 43%;
-        transform: translate(-50%);
-        right: -10px;
-      }
-      .icon img {
-        width: 100%;
-      }
-      .recipe .buy_recipe_btn {
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-      }
-      .buy_recipe_btn button {
-        width: 45%;
-      }
-      .buy_recipe_btn .delete_recipe {
-        background-color: orange;
-      }
-      /* ENDS HERE */
 
       /* UPLOAD RECIPE */
-      .upload_recipe_container {
-        position: relative;
-        background-color: #fff;
+      .signup_form {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        box-sizing: bordr-box;
         justify-content: center;
+        align-items: center;
+        background-color: #2c1800e5;
       }
-      .upload_recipe_container form {
-        box-shadow: 0px 0px 5px #ebebeb;
+      .signup_form form {
+        background-color: #fff;
         box-sizing: border-box;
-        width: 450px;
-        padding: 10px 20px;
+        width: 400px;
+        /* height: 500px; */
+        border-radius: 16px;
+        padding: 48px 22px;
+        box-sizing: border-box;
+      }
+      form div {
+        margin: 18px 0px;
+      }
+      form input {
+        width: 100%;
+        outline: none;
+        padding-left: 16px;
+        height: 43px;
+        box-sizing: border-box;
+        border: thin solid #b1b0b0;
+        font-size: 0.9rem;
+        font-family: "DM Sans";
+        border-radius: 8px;
       }
 
-      form .recipe_btn {
+      form div.mentor_img {
+        border-radius: 8px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: #d3d2d2;
+        color: #fff;
+        width: 150px;
+        margin: 0px auto;
+        margin-bottom: 66px;
+        height: 150px;
+      }
+      .mentor_img label {
+        margin: 0px;
+        font-family: "DM Sans";
+      }
+      .mentor_img img {
+        width: 100%;
+      }
+      .add_img_icon {
+        padding: 0px;
+        font-size: 5rem;
+        margin: 0px;
+        font-weight: bold;
+      }
+
+      form .form_btn {
         margin-top: 40px;
         display: flex;
         justify-content: center;
         gap: 20px;
       }
-      .recipe_btn button {
+      .form_btn button {
         min-width: 100px;
       }
       /* ENDS HERE */
 
-      /* TOGGLE APPEARANCE */
+      /* MENTORS LIST */
+      .mentors_container {
+        display: flex;
+        justify-content: center;
+        padding: 57px 5%;
+        margin: 0px;
+        flex-wrap: wrap;
+        gap: 114px 0px;
+      }
+      .mentor_search {
+        width: 90%;
+        border: thin solid #9b9999;
+        height: 50px;
+        padding: 0px 16px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .mentor_search input {
+        width: 70%;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 1rem;
+        font-family: "DM Sans";
+      }
+      .mentor_search img {
+        width: 20px;
+      }
+
+      .mentors {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 102px;
+      }
+      .mentors h1 {
+        margin: 0px;
+      }
+      .mentor {
+        width: 289px;
+        height: 391px;
+        display: flex;
+        padding: 31px 24px 47px 24px;
+        box-sizing: border-box;
+        flex-direction: column;
+        gap: 17px;
+        justify-content: space-between;
+        box-shadow: 0px 0px 5px #cac9c9;
+        border-radius: 16px;
+      }
+      .mentor .name_img {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .mentor .name-img a {
+        width: 64px;
+        height: 64px;
+      }
+      .mentor .name_img h2 {
+        font-size: 1.25rem;
+      }
+      .mentor .name_img h2 span {
+        font-size: 0.75rem;
+        display: block;
+        color: #ff8a00;
+        text-transform: capitalize;
+      }
+
+      .mentor .expertise {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .mentor .expertise p {
+        color: #ff8a00;
+        font-weight: bold;
+        font-size: 0.75rem;
+        margin: 0px;
+        background-color: #ffe9ce;
+        border-radius: 4px;
+        padding: 8px 16px;
+        text-transform: capitalize;
+      }
+
+      .mentor .price h3 {
+        font-size: 0.75rem;
+        margin: 10px 0px;
+        text-transform: uppercase;
+      }
+      .mentor .price p {
+        font-size: 2rem;
+        margin: 10px 0px;
+        color: #ff8a00;
+        font-weight: bold;
+      }
+
+      .mentor .book {
+        text-align: center;
+      }
+      /* ENDS HERE */
+
+      /* CHANGE APPEARANCE */
       .hide {
         display: none;
       }
       .show {
         display: flex;
       }
+
+      /* slide animation */
+      @keyframes slide {
+        from {
+          left: -20%;
+        }
+        to {
+          left: 5%;
+        }
+      }
+      /* ends here */
+      /* ENDS HERE */
     </style>
-    <title>Buy Recipe</title>
+    <title>Mentorly</title>
   </head>
   <body>
     <div class="container">
       <nav>
         <div class="logo">
-          <p>Calypso's <span>Recipes</span></p>
+          <img
+            src="https://drive.google.com/uc?id=1oqGBHDnwJvSY0B70cd4JzK1K5p-98HcX"
+            alt="Mentorly Logo"
+          />
         </div>
 
-        <div class="navigation">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">About Us</a></li>
-          </ul>
+        <div class="wallet_nav">
+          <div class="connect_wallet_btn show">
+            <button class="connect_wallet">Connect Wallet</button>
+          </div>
+
+          <div class="user_details hide">
+            <p class="wallet_balance">
+              0cUSD
+            </p>
+            <div class="user_identicon">
+              <div class="identicon_img">
+                <img
+                  src="https://image.shutterstock.com/image-vector/profile-icon-vector-design-template-600w-1435603958.jpg"
+                  alt="User Image"
+                />
+              </div>
+              <p class="wallet_address">0xvhgal....</p>
+            </div>
+          </div>
         </div>
       </nav>
 
-      <header>
+      <header class="show">
         <section class="header_content">
           <div>
             <h1>
-              Cook delicious meals with <span>less stress and more joy</span>
+              Career acceleration at your fingertips
             </h1>
             <p>
-              Explore our world, find the best recipes and meal plans for your
-              optimum health and budget at a click of a button.
+              Gain instant access to thousands of verified mentors offering
+              years of experience and top-rated career advice
             </p>
+          </div>
+
+          <div class="header_btn">
+            <div class="homepage_btn show">
+              <button class="connect_wallet">Connect Wallet</button>
+              <button class="learn_more">Learn More</button>
+            </div>
+
+            <div class="connected_btn hide">
+              <button class="mentor_app">Apply as a mentor</button>
+              <button class="mentee_app">Apply as a mentee</button>
+            </div>
           </div>
         </section>
 
-        <div class="header_btn">
-          <button class="login_btn show">Login</button>
-          <button class="signup_btn show">Sign up</button>
-          <button class="header_upload_recipe_btn hide">
-            Upload recipes
-          </button>
-          <button class="header_buy_recipe_btn hide">
-            Available Recipes
-          </button>
-        </div>
+        <section class="header_image">
+          <img
+            src="https://drive.google.com/uc?id=12ZSrDWDf8aJilsJU_jh7diVDl3CrouNR"
+            alt="Header Image"
+          />
+        </section>
       </header>
 
-      <!-- LOGIN PAGE -->
-      <div class="login_form hide">
-        <h1>Login</h1>
-        <form>
-          <div class="user_email">
-            <input
-              type="email"
-              class="uesr_email"
-              placeholder="Email address"
-              reqiured
-            />
-          </div>
-
-          <div class="user_password">
-            <input
-              type="password"
-              class="uesr_password"
-              placeholder="Password"
-              reqiured
-            />
-          </div>
-
-          <div class="user_status">
-            <select>
-              <option value="">Status</option>
-              <option value="user">User</option>
-              <option value="member">Member</option>
-            </select>
-          </div>
-
-          <div>
-            <button>Login</button>
-          </div>
-        </form>
-      </div>
-
-      <!-- SIGNUP PAGE -->
+      <!-- SIGN UP AS A MENTOR -->
       <div class="signup_form hide">
-        <h1>Sign Up</h1>
         <form>
-          <div class="user_email">
-            <input
-              type="email"
-              class="uesr_email"
-              placeholder="Email address"
-              reqiured
-            />
+          <div class="mentor_img">
+            <input class="hide" id="image" type="file" accept="image/*" />
+            <span class="add_img_icon">+</span>
+            <label id="add_image" for="image">Upload image</label>
+            <img id="uploaded_img" alt="" />
           </div>
 
-          <div class="user_password">
-            <input
-              type="password"
-              class="uesr_password"
-              placeholder="Password"
-              reqiured
-            />
+          <div class="mentor_name">
+            <input type="text" placeholder="Name" required />
           </div>
 
-          <div class="user_confirm_password">
-            <input
-              type="text"
-              class="uesr_password"
-              placeholder="Confirm Password"
-              reqiured
-            />
+          <div class="mentor_expertise">
+            <input type="text" placeholder="Field of Expertise" required />
           </div>
 
-          <div class="user_status">
-            <select>
-              <option value="">Status</option>
-              <option value="user">User</option>
-              <option value="member">Member</option>
-            </select>
+          <div class="mentor_price">
+            <input type="number" placeholder="Price per hour" required />
           </div>
 
-          <div>
-            <button>Sign Up</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="upload_recipe_container hide">
-        <form>
-          <h1>Add Recipe</h1>
-          <div class="recipe_name">
-            <input type="text" placeholder="Recipe name" />
-          </div>
-
-          <div class="recipe_author">
-            <input type="text" placeholder="Author" />
-          </div>
-
-          <div class="recipe_ingredients">
-            <textarea placeholder="Ingredients"></textarea>
-          </div>
-
-          <div class="recipe_procedure">
-            <textarea placeholder="Procedure"></textarea>
-          </div>
-
-          <div class="recipe_imgURL">
-            <input type="text" placeholder="Recipe image url" />
-          </div>
-
-          <div class="recipe_price">
-            <input type="number" placeholder="Price" />
-          </div>
-
-          <div class="recipe_btn">
-            <button class="upload">Upload recipe</button>
-            <button class="cancel">Cancel upload</button>
+          <div class="form_btn">
+            <button class="submit">Submit</button>
+            <button class="cancel">Cancel</button>
           </div>
         </form>
       </div>
     </div>
 
-    <!-- BALANCE -->
-    <div class="balance hide"></div>
+    <!-- AVAILABEL MENTORS PAGE -->
+    <div class="mentors_container hide">
+      <div class="mentor_search">
+        <input type="search" placeholder="Search" />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+          alt="Seacrh icon"
+        />
+      </div>
 
-    <!-- RECIPES -->
-    <div class="recipes hide"></div>
+      <div class="mentors"></div>
+    </div>
 
     <!-- NOTIFICATION -->
     <div class="notification hide">
-      <h1>Please wait...</h1>
+      <p>Please wait...</p>
     </div>
 
     <script src="https://unpkg.com/ethereum-blockies@0.1.1/blockies.min.js"></script>
