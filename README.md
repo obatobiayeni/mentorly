@@ -1,6 +1,5 @@
 # Mentorly
-```
-```
+
 # Demo
 ```
 https://obatobiayeni.github.io/mentorly/
